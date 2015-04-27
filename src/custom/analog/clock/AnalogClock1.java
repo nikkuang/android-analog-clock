@@ -225,7 +225,7 @@ Context mContext;
             canvas.restore();
         }
     }
-    MyCount counter = new MyCount(10000, 1000);
+    MyCount counter = new MyCount(1000, 1000); //Prevent Lagging every 9 seconds
     public class MyCount extends CountDownTimer{
     	public MyCount(long millisInFuture, long countDownInterval) {
     	super(millisInFuture, countDownInterval);
@@ -244,7 +244,7 @@ Context mContext;
             int minute = mCalendar.minute;
             int second = mCalendar.second;
             
-    		  mSecond=6.0f*second;
+    		  mSecond=6.0f*(second + 1); //Add 1 to avoid delay
     		mSeconds=true;
     		 //mChanged = true;
     		 AnalogClock1.this.invalidate();
